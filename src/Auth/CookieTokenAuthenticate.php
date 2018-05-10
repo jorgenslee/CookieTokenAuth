@@ -98,11 +98,12 @@ class CookieTokenAuthenticate extends BaseAuthenticate
     {
         // Only attempt to authenticate once per session
         if (!$this->authenticateAttemptedThisSession($request)) {
+            $minimizeCookieExposureRedirectCallback = $this->config('minimizeCookieExposureRedirectCallback');
             
             // The minimizeCookieExposureRedirect config is a callable object. It should return
             // a boolean value to control whether or not the minimize cookie exposure
             // redirection is performed or not.
-            if ($this->config('minimizeCookieExposure') && $this->config('minimizeCookieExposureRedirectCallback')($request, $response)) {
+            if ($this->config('minimizeCookieExposure') && $minimizeCookieExposureRedirectCallback($request, $response)) {
                 // We are minimizing token cookie exposure; redirect the user (once, at the start
                 // of a session, to attempt to log them in using a token cookie).
                 $redirectComponent = $this->_registry->load('Beskhue/CookieTokenAuth.Redirect');
