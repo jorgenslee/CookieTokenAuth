@@ -29,6 +29,7 @@ class CookieTokenComponent extends Component
             $path = Router::url([
                 'plugin' => 'Beskhue/CookieTokenAuth',
                 'controller' => 'CookieTokenAuth',
+                'prefix' => false,
             ]);
         } else {
             // We are not minimizing token cookie exposure, tell the browser to always send the token cookie
