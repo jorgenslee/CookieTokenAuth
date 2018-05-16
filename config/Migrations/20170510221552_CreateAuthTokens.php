@@ -55,7 +55,8 @@ class CreateAuthTokens extends AbstractMigration
         $table
             ->addColumn('user_id', 'integer', [
                 'null' => false,
-                //'signed' => false
+                'signed' => false,
+                'limit'=> 10
             ])
             ->addForeignKey('user_id', 'Users', 'id',
                 ['delete' => 'CASCADE', 'update' => 'CASCADE']
