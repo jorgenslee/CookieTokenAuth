@@ -3,7 +3,7 @@
 namespace Beskhue\CookieTokenAuth\Controller;
 
 use /** @noinspection PhpUndefinedNamespaceInspection */
-    App\Controller\AppController;
+    App\Controller\Admin\AdminController;
 use Cake\Controller\Component\AuthComponent;
 use Cake\Event\Event;
 
@@ -13,7 +13,7 @@ use Cake\Event\Event;
  * @package Beskhue\CookieTokenAuth\Controller
  * @property AuthComponent $Auth
  */
-class CookieTokenAuthController extends AppController
+class CookieTokenAuthController extends AdminController
 {
     public $autoRender = false;
 
